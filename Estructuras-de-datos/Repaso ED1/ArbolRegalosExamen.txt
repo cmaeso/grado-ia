@@ -1,0 +1,70 @@
+typedef struct{
+   char nombre[50];
+   char direccion[100]; 
+}tNino; 
+
+typedef struct{
+   char nombre[50];
+   int numJugadores;
+   char tipo[50];
+}tRegalo;
+
+
+
+typedef struct listaRegalos {
+	tRegalo regalo;
+	struct listaRegalos *sig;
+} tListaRegalos ;
+
+
+typedef struct nodo {
+	tNino nino;
+	tListaRegalos *lista;
+	struct nodo* izq;
+	struct nodo* der;
+} tNodoEstructura;
+
+typedef tNodoEstructura * tEstructura;
+
+void localiza(tEstructura est, char* nom, tNodoEstructura* desti){
+	
+	while (est!=NULL && (strcmp(nom, est->nino->nombre)!=0)){
+		if(strcmp(nom, est->nino->nombre)<0){
+			est=est->izq;
+		} else {
+			est=est->der;
+		}
+	}
+	if (est!=NULL && (strcmp(nom, est->nino->nombre)==0)){
+		*desti=est;
+	}
+}
+
+
+int tieneRegalo(tEstructura est, char* nombreNino, char* nombreRegalo){
+	while (est!=NULL && (strcmp(nombreNino, est->nino->nombre)!=0)){
+		if(strcmp(nombreNino, est->nino->nombre)<0){
+			est=est->izq;
+		} else {
+			est=est->der;
+		}
+	}
+	
+	if (est!=NULL && (strcmp(nom, est->nino->nombre)==0)){
+		tListaRegalos l= (est)->listaRegalos;
+		
+		while (l!=NULL && !seLlamaIgual(l->regalo->nombre, nombreRegalo)){
+			l=l->sig;
+			
+		}
+		
+		if (l!=NULL && seLlamaIgual(l->regalo->nombre, nombreRegalo)){
+			return 1;
+		} else {
+			return 0;
+		}
+	
+	}
+
+
+}

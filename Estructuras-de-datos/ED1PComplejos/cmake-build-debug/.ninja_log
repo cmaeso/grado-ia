@@ -1,0 +1,7 @@
+# ninja log v5
+3	263	7400046409796280	build.ninja	84aa396cc1b36435
+4	120	7196149033573650	CMakeFiles/ED1PComplejos.dir/main.c.obj	a17414d973db438
+8	474	7182187240077130	CMakeFiles/ED1PComplejos.dir/complejos.c.obj	3237ce82f44b4c8f
+123	257	7196149034913550	ED1PComplejos.exe	65ed2811dcf33518
+8	186	7182189260999880	CMakeFiles/ED1PComplejos.dir/Bitmap.c.obj	18debf17ead156c5
+8	124	7196093008648760	CMakeFiles/ED1PComplejos.dir/main2.c.obj	7e396b4aac938123

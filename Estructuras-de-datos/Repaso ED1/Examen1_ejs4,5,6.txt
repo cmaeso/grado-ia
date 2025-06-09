@@ -1,0 +1,104 @@
+typedef struct modelo{
+
+              char nombre[50];
+
+              char autor[50];
+
+              int numUsuarios;
+
+}tModelo;
+
+void crearModelo(tModelo* dest, char nom[50], char aut[50], int usuarios);
+
+void mostrarModelo(tModelo mod);
+
+void asignarModelo(tModelo *dest, tModelo origen);
+
+char * obtenerNombre(tModelo mod);
+
+char * obtenerAutor(tModelo mod);
+
+int obtenerUsuarios(tModelo mod);
+
+
+#Queremos priorizarlos, aquellos q tengan ms de 50K, después entre 50-25K, <25K
+
+
+typedef struct nodo {
+	tModelo modelo;
+	int prioridad;
+	struct nodo * ant;
+	struct nodo * sig;
+} tNodo
+
+typedef struct estructura {
+	tNodo* p;
+	tNodo* f;
+} tEstructura
+
+
+void anadirModelo(tEstructura* estructura, char * nom, char * aut, int usuarios){
+	tNodo * nuevoNodo = malloc (sizeof(tNodo));
+	tModelo modelo;
+	
+	crearModelo(&modelo, nom,aut,usuarios);
+	asignarModelo(&nuevoNodo->modelo, modelo);
+	
+	if (usuarios>=50000) {nuevoNodo->prioridad=1;}
+		else if (usuarios>=25000) {nuevoNodo->prioridad=2;} 
+			else {nuevoNodo->prioridad=3;}
+	
+	nuevoNodo->ant=NULL;
+	nuevoNodo->sig=NULL;
+	
+	if (esVacia(estructura)){
+		estructura->p=nuevoNodo;
+		estructura->f=nuevoNodo;
+	
+		
+	} else {
+		tNodo * aux=estructura->f; //Empezamos recorriendo por el final
+		
+		while (aux->prioridad > nuevoNodo->prioridad && aux!=NULL ){
+		aux=aux->ant;
+		}
+
+		//Insertar al final 
+		if (aux->sig==NULL) {
+			aux->sig=nuevoNodo;
+			nuevoNodo->ant= aux;
+			estructura->f=nuevoNodo;
+		}
+		//Insertar al principio
+		else if (aux==NULL){
+			nuevoNodo->sig=estructura->p;
+			estructura->p->ant=nuevoNodo;
+			estructura->p=nuevoNodo;
+			
+		} else {
+		//Insertar en medio
+			nuevoNodo->ant=aux;
+			nuevoNodo->sig=aux->sig;
+			aux->sig->ant=nuevoNodo;
+			aux->sig=nuevoNodo;
+
+		}
+	 }
+}	 
+
+
+int contarPrioritarios(tEstructura estructura, int limiteUsuarios) {
+	tNodo*aux= estructura->p;
+	int prior=0;
+	
+	while (aux!=NULL){
+		if (aux->modelo->usuarios >=  limiteUsuarios){
+		prior++;
+		}
+		aux=aux->sig;
+	}
+	return prior;
+}
+
+
+

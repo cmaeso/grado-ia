@@ -1,0 +1,39 @@
+typedef struct{ 
+   int numero; 
+   char tipoPrueba[50]; 
+}tCasilla; 
+
+typedef struct{
+   int resultado; // 1 si lo hacen bien, -1 si no la superan 
+   int tiempo; 
+}tResultado; 
+
+
+typedef struct nodo{
+	tCasilla casilla;
+	struct nodo* sigCas;
+	struct nodo* casillaAcierto;
+	struct nodo* casillaFallo;
+} tNodo;
+
+typedef tNodo* tEstructura;
+
+
+void analiza(tEstructura est, tCasilla casaA, tCasilla casB){
+	tNodo*aux= est;
+	
+	while(aux!=NULL && !iguales(casA, aux->casilla){
+		aux=aux->sigCas;
+	}
+	
+	if(iguales(casA, aux->casilla)){
+		if (iguales(casB, aux->casillaAcierto->casilla){
+			printf("Puedes ir, resolviendo la prueba");
+		} else if ((iguales(casB, aux->casillaFallo->casilla){
+			printf("Puedes ir, si no resuelves la prueba");
+		}
+	} else {
+		printf("No puedes ir de ninguna manera");
+	}
+
+}

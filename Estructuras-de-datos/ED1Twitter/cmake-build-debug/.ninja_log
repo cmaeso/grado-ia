@@ -1,0 +1,5 @@
+# ninja log v5
+5	147	7399214859223940	CMakeFiles/ED1Twitter.dir/main.c.obj	c0094af5bbc9b015
+3	317	7399695409670080	build.ninja	708c5cd6180ccc94
+11	157	7399214859344020	CMakeFiles/ED1Twitter.dir/tweets.c.obj	c8ddd1b25a087487
+158	404	7399214861763870	ED1Twitter.exe	105f030252ea465d

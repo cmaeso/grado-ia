@@ -1,0 +1,7 @@
+# ninja log v5
+7	128	7397374613686740	CMakeFiles/ED1VideojuegosOK.dir/pilas.c.obj	d8d094678785bd99
+1	213	7397388301555509	build.ninja	bc25f877b43cbc19
+2	111	7397380070343169	CMakeFiles/ED1VideojuegosOK.dir/main.c.obj	2eb5a79bb5b65857
+2	117	7397380894324128	CMakeFiles/ED1VideojuegosOK.dir/listaES2P.c.obj	1fed49ded5e8c20
+10	169	7397369747328577	CMakeFiles/ED1VideojuegosOK.dir/videojuegos.c.obj	ec3610b74168b8e5
+118	263	7397380895737212	ED1VideojuegosOK.exe	b2530d767a17a6a6

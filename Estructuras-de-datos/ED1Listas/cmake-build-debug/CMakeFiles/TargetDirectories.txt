@@ -1,0 +1,3 @@
+R:/Desktop/ED1Listas/cmake-build-debug/CMakeFiles/ED1Listas.dir
+R:/Desktop/ED1Listas/cmake-build-debug/CMakeFiles/edit_cache.dir
+R:/Desktop/ED1Listas/cmake-build-debug/CMakeFiles/rebuild_cache.dir

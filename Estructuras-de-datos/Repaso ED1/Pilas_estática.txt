@@ -1,0 +1,29 @@
+#Implementación estática pilas
+
+typedef struct pilaArray {
+ tElemento array[DIM]
+ int cima;
+}tPila
+
+
+void crearPilaVacia(tPila * pila){
+cima=-1;
+}
+
+
+void push (tElemento elem, tPila *pila){
+	//Comprobamos que hay espacio:
+	if (pila->cima < DIM-1){
+	pila->cima++;
+	asignarElemento(pila->array[pila->cima], elem);
+	}
+}
+
+
+void pop (tPila *pila){
+	if (!esPilaVacia(pila)){
+		pila->cima--;
+	
+	}
+
+}

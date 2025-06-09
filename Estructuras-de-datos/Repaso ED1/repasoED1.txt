@@ -1,0 +1,46 @@
+FiltrarArbol(CrearArbolVacio) = CrearListaVacia
+FiltrarArbol(ConstruirArbolBin(i,r,d))= SI Misterio(r) -> 
+								Construir(r, Concatenar(FiltrarArbol(i), FiltrarArbol(d))) |
+								Concatenar(FiltrarArbol(i), FiltrarArbol(d))
+								
+//Variantes, preorden, postorden...
+
+
+C H U  P A D O
+
+
+int altura(tArbol arbol){
+	if EsVacio(arbol)){
+	return 0 ;
+	} else {
+	return 1 + max(altura(arbol->izq),altura(arbol->der))
+}
+
+void factorEq(tArbol arbol){
+	int alt_izq=altura(arbol->izq);
+	int alt_der=altura(arbol->der);
+	
+	if (alt_dcho-alt_izq <=2) || (alt_dcho-alt_izq >=2) {
+	printf("ROTACIÓN\N);
+	}
+}
+
+
+
+GRAFO PARA BRINDAR CON PERSONAS
+typedef struct Conexion {
+	tPersona dest;
+	tBebida bebida;
+	struct Conexion * sig;
+}tConexion
+
+typedef tConexion* tListaAdy;
+
+typedef struct Origen{
+	tPersona per;
+	tListaAdy ad;
+	struct Origen*sig;
+} tOrigen
+
+
+int hanBrindado (tPersona per1, tPersona per2, tBebida bebida, tGrafo grafo)

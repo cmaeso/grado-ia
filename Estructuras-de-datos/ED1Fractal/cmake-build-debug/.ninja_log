@@ -1,0 +1,10 @@
+# ninja log v5
+3	402	7400048390796650	build.ninja	c3676c36c6ca97af
+5	160	7394645857797660	CMakeFiles/ED1fractal.dir/complejos.c.obj	d257b15e1192082a
+7	164	7196157691865500	CMakeFiles/ED1fractal.dir/Bitmap.c.obj	1dc7398509715fee
+5	113	7394644758775110	CMakeFiles/ED1fractal.dir/circuito.c.obj	95bd3c2bd907322b
+11	135	7394644277347430	CMakeFiles/ED1fractal.dir/main.c.obj	e81623ed61dac897
+165	314	7394645859777560	ED1fractal.exe	db62b549f493e104
+5	113	7394638613378480	CMakeFiles/ED1fractal.dir/main_circuito.c.obj	9ba03cae993e51cb
+5	128	7394633750208900	CMakeFiles/ED1fractal.dir/main1.c.obj	93842a03287328e9
+4	139	7394644277427370	CMakeFiles/ED1fractal.dir/main2.c.obj	9d41912b9d275ac

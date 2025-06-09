@@ -1,0 +1,3 @@
+R:/Desktop/ED1FakeNewsListaEnlazadaSimple/cmake-build-debug/CMakeFiles/ED1FakeNews.dir
+R:/Desktop/ED1FakeNewsListaEnlazadaSimple/cmake-build-debug/CMakeFiles/edit_cache.dir
+R:/Desktop/ED1FakeNewsListaEnlazadaSimple/cmake-build-debug/CMakeFiles/rebuild_cache.dir

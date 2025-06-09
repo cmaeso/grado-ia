@@ -1,0 +1,5 @@
+# ninja log v5
+5	138	7208280063871540	CMakeFiles/ED1ListaEnlazadaDoblePunt.dir/listaEnlazadaPunteroPrinyFin.c.obj	ff7eb959db4ce331
+5	110	7208279666380670	CMakeFiles/ED1ListaEnlazadaDoblePunt.dir/main.c.obj	ee7081e665f039eb
+141	280	7208280065261420	ED1ListaEnlazadaDoblePunt.exe	fec03a0e03ed4446
+3	440	7399711910508470	build.ninja	60b5cbf3de5c0622

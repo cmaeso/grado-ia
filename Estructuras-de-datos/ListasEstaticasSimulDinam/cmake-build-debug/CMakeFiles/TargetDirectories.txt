@@ -1,0 +1,3 @@
+R:/Desktop/ListasEstaticasSimulDinam/cmake-build-debug/CMakeFiles/ListasEstaticasSimulDinam.dir
+R:/Desktop/ListasEstaticasSimulDinam/cmake-build-debug/CMakeFiles/edit_cache.dir
+R:/Desktop/ListasEstaticasSimulDinam/cmake-build-debug/CMakeFiles/rebuild_cache.dir

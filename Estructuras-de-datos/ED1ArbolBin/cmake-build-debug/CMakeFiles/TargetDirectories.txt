@@ -1,0 +1,3 @@
+R:/Desktop/ED1ArbolBin/cmake-build-debug/CMakeFiles/ED1ArbolBin.dir
+R:/Desktop/ED1ArbolBin/cmake-build-debug/CMakeFiles/edit_cache.dir
+R:/Desktop/ED1ArbolBin/cmake-build-debug/CMakeFiles/rebuild_cache.dir

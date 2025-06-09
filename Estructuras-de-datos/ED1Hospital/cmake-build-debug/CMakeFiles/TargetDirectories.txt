@@ -1,0 +1,3 @@
+R:/Desktop/ED1Hospital/cmake-build-debug/CMakeFiles/ED1Hospital.dir
+R:/Desktop/ED1Hospital/cmake-build-debug/CMakeFiles/edit_cache.dir
+R:/Desktop/ED1Hospital/cmake-build-debug/CMakeFiles/rebuild_cache.dir

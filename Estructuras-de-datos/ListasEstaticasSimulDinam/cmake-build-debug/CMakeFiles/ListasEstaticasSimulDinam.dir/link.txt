@@ -1,0 +1,3 @@
+"C:\Program Files (x86)\JetBrains\CLion 2023.1.3\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\ListasEstaticasSimulDinam.dir/objects.a
+C:\PROGRA~2\JETBRA~1\CLION2~2.3\bin\mingw\bin\ar.exe qc CMakeFiles\ListasEstaticasSimulDinam.dir/objects.a @CMakeFiles\ListasEstaticasSimulDinam.dir\objects1
+C:\PROGRA~2\JETBRA~1\CLION2~2.3\bin\mingw\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\ListasEstaticasSimulDinam.dir/objects.a -Wl,--no-whole-archive -o ListasEstaticasSimulDinam.exe -Wl,--out-implib,libListasEstaticasSimulDinam.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\ListasEstaticasSimulDinam.dir\linkLibs.rsp

@@ -1,0 +1,145 @@
+//En fakenews.h:
+
+#define MAX 100
+typedef struct fecha{
+ int dia;
+ int mes;
+ int anyo;
+} tFecha
+
+
+typedef struct noticia{
+	char titulo[MAX];
+	tFecha fecha;
+	char medio[MAX];
+	int visionados;
+
+}tNoticia
+
+#En LES2P.h
+
+typedef struct nodo {
+	tNoticia noticia;
+	struct nodo *sig;
+}tNodo
+
+typedef struct lista {
+	tNodo * p;
+	tNodo * f;
+} tLista
+
+
+//En LES2P
+
+//Constructoras generadoras
+void crearVacia (tLista * lista){
+	lista->p= NULL;
+	lista->f=NULL;
+}
+
+//Observadoras selectoras
+
+tNodo primero (tLista * lista){
+	return lista->p;
+}
+
+tLista resto (tLista * lista){
+	if esVacia(lista){
+	return lista;
+	}
+	else {
+	tLista newlista;
+	crearVacia(&newlista);
+	newlista.p = lista->p->sig;
+	newlista.f= lista->f;
+	return newlista;
+	}
+}
+
+//Observadoras no selectoras
+
+int esVacia (tLista * lista){
+return (lista->p=NULL or lista->f=NULL;
+}
+
+int longitud (tLista * lista){
+	int longitud=0;
+	
+	if esVacia(lista){return longitud;}
+	tNodo * aux=lista->p;
+	
+	while (aux!=NULL){
+		aux= aux->sig;
+		longitud++;
+	}
+	return longitud;
+}
+
+
+void mostrarLista (tLista *lista){
+	tNodo * aux= lista->p;
+	
+	while (aux!=NULL){
+	mostrarElemento(&aux->noticia);
+	aux= aux->sig;
+	}
+}
+
+
+void insertarPrincipio (tNoticia noticia, tLista *lista){
+	tNodo * nuevoNodo= malloc (sizeof(tNodo));
+	asignarElemento(&nuevoNodo.noticia, noticia);
+	nuevoNodo->sig= lista->p;
+	lista->p= nuevoNodo;
+	
+	if esVacia(lista){
+	lista->f=nuevoNodo;
+	}
+}
+
+void insertarFinal (tNoticia noticia, tLista *lista){
+	tNodo * nuevo nodo= malloc(sizeof(tNodo));
+	asignarElemento(&nuevoNodo.noticia, noticia);
+	nuevoNodo->sig=NULL;
+	
+	if esVacia(lista){
+	lista.p= nuevoNodo;
+	} else { 09
+	}
+	lista->f= nuevoNodo;
+}
+
+void borrarElemento(tNoticia noticia, tLista *lista){
+	if (esVacia(lista)){
+	return;
+	} else {
+		int encontrado=0;
+		tNodo * aux= lista->p;
+		tNodo * ant= NULL;
+		
+		while (!encontrado && aux!=NULL){
+			if (IgualElemento(noticia, aux->noticia)){
+				encontrado=1;
+				if (lista->p == lista->f) {
+					lista->p=NULL;
+					lista->f=NULL;
+				} else if (aux==lista->p){
+					lista->p=aux->sig;
+					
+				} else if (aux==lista->f){
+					lista->f= ant;
+					ant->sig=NULL;
+
+				} else {
+					ant->sig=aux->sig;
+				}
+			free(aux);
+		} else {
+		ant=aux;	
+		aux= aux->sig;}
+	}
+}
+
+}
+
+

@@ -1,0 +1,25 @@
+void eliminarABB(tArbol a* , tElemento e){
+	tArbol aux;
+	if (!esArbolVacio(*a){
+		if (igualElemento((*a)->elem, e){ //está en la raiz
+			// hijo izq vacio
+			aux= (*a)
+			if (esArbolVacio((*a)->izq)){
+				(a*)=(a*)->der;
+				free(aux);
+			} else if (esArbolVacio((*a)->der)){
+				(a*)=(a*)->izq;
+				free(aux)
+			} else {
+				// tiene dos hijos (por conveniencia se asigna como raiz el minimo del hijo der)
+				asignar(&(*a)->elem,minimo((*a)->der));
+				eliminarABB(&(*a)->der , minimo((*a)->der));
+		}
+	}
+	if (Mayor(e, &((*a)->elem)){
+			eliminarABB(&(a*)->der, e);
+			} else {
+			eliminarABB(&(a*)->izq, e);
+}
+
+

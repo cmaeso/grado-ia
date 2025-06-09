@@ -1,0 +1,124 @@
+typedef struct paciente {
+	int exp;
+	char nombre[20];
+	int edad;
+	int gravedad;
+	int cama;
+} tPaciente;
+
+
+typedef struct nodo {
+	tPaciente * paciente;
+	struct nodo * sig;
+	struct nodo *ant;
+}tNodo;
+
+typedef struct Medicos {
+	char nombre[20];
+	char apellidos[20];
+}tMedicos
+
+
+typedef struct hospital {
+	tNodo * p;
+	tNodo* f;
+	int camasDisp;
+	tMedicos lista[5];
+}tHospital
+
+
+void crearHospitalVacio(tHospital * hospital, tMedico m1, tMedico m2,tMedico m3, tMedico m4, tMedico m5){
+	hospital->p=NULL;
+	hospital->f=NULL;
+
+	hospital->lista[0]= m1;
+	hospital->lista[1]= m2;
+	hospital->lista[2]= m3;
+	hospital->lista[3]= m4;
+	hospital->lista[4]= m5;
+	
+	hospital->camasDisp=75;
+
+}
+
+int hospitalVacio(tHospital * hospital){
+	return (hospital->p=NULL && hospital->f=NULL);
+}
+
+void insertarEnHospital (tHospital * hospital, tPaciente paciente) {
+	
+	tNodo * nodo= tNodo * (malloc(1*sizeof(tNodo));
+	asignarPaciente(&nodo, paciente);
+	
+	if (hospitalVacio){
+		hospital->p=nodo;
+		hospital->f=nodo;
+		nodo->sig=NULL;
+		nodo->ant=NULL;
+	} else {
+		tNodo * aux=hospital->f;
+		while (aux!=NULL && aux->paciente->urgencia > paciente->urgencia){
+			aux=aux->ant;
+		)
+		//Es el primero 
+		if (aux==NULL){
+			nodo->sig=hospital->p
+			hospital->p=nodo;
+			nodo->sig=aux->sig;
+			nodo->ant=NULL;
+			aux->sig->ant=nuevo;
+		} 
+		//Es el último
+		else if (aux->sig=NULL) {
+			hospital->f=nodo;
+			nodo->ant=aux->ant;
+			nodo->sig=NULL;
+			aux->ant->sig=nodo;
+		} else {
+			//ta en medio
+			nodo->sig=aux->sig;
+			nodo->ant=aux;
+			aux->sig->ant=nodo;
+			aux->sig=nodo;
+		}
+	
+	}
+	
+	if (hospital->camasDisp==0) {
+		nodo->paciente->cama=0;
+		printf("No hay camas disponibles. Se ha añadido a la cola.");
+	} else {
+		hospital->camasDisp--;
+		nodo->paciente->cama=1;
+	}
+	
+
+}
+
+}
+
+void consultarPrimero(tHospital * hospital) {
+	tNodo *aux=hospital->p;
+	
+	while (aux->paciente->cama!=0){
+		aux=aux->sig;
+	}
+	if(aux!=NULL){
+		mostrarPaciente(&aux->paciente);
+
+	} else {
+	printf("No hay pacientes esperando");
+	}
+}
+
+//Asumimos q solo estan en la lista  no tienen cama
+void quitarPrimero(tHospital *hospital){
+
+	if (!hospitalVacio(hospital){
+		tNodo *aux= hospital->p;
+		hospital->p=aux->sig;
+		free(aux);
+		hospital->camasDisp++;
+	}
+}
+		

@@ -1,0 +1,56 @@
+typedef struct nodo {
+	tElemento elem;
+	struct nodo* izq;
+	struct nodo* der;
+}tNodo
+
+typedef tNodo * tArbol;
+
+void crearArbolVacio(tArbol * arbol){
+	*a=NULL;
+}
+
+void construirArbol(tArbol*arbol, tArbol izq, tArbol der, tElemento e){
+	*arbol= malloc(sizeof(tArbol);
+	asignarElemento(&(*arbol)->elem, e);
+	(*arbol)->izq=izq;
+	(*arbol)->der=der;
+}
+
+
+int esArbolVacio(tArbol arbol){
+	return(arbol==NULL);
+}
+
+
+int diosExiste(tArbol arbol, tElemento dios){
+
+    if (arbol==NULL) {
+        return 0;
+    }
+    else if (strcmp(arbol->elem.nombre, dios.nombre)==0){
+        return 1;
+    }
+    return ((diosExiste(arbol->izq, dios)) || diosExiste(arbol->der, dios));
+
+}
+
+int esArbolVacio(tArbol arbol){
+    return(arbol==NULL);
+}
+
+int esProgenitor(tArbol arbol, tElemento diosProge, tElemento diosHijo) {
+    if (esArbolVacio(arbol)) { return 0; }
+    else {
+        if (strcmp(arbol->elem.nombre, (diosProge.nombre)) == 0) {
+            if ((arbol->izq && (strcmp(arbol->izq->elem.nombre, (diosHijo.nombre)) == 0)) ||
+            (arbol->der && ((strcmp(arbol->der->elem.nombre, (diosHijo.nombre)) == 0))))
+            {
+                return 1;
+            } else {
+                return esProgenitor(arbol->der, diosProge, diosHijo) || esProgenitor(arbol->izq, diosProge, diosHijo);
+            }
+        }
+
+    }
+}
