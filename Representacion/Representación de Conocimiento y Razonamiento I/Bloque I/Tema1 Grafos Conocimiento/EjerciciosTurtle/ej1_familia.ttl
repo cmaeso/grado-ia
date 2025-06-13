@@ -1,0 +1,57 @@
+
+@prefix ex: <http://ejemplo.org/familia#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:<http://www.w3.org/2001/XMLSchema#>.
+
+
+#Definición de clases:
+ex:Persona rdf:type rdfs:Class .
+ex:Familia a rdfs:Class .
+
+#Definición de propiedades
+ex:nombre a rdf:Property .
+ex:edad a rdf:Property .
+ex:sexo a rdf:Property .
+ex:esPadreDe a rdf:Property .
+ex:esMadreDe a rdf:Property .
+ex:esHijoDe a rdf:Property .
+ex:esEsposaDe a rdf:Property .
+ex:esEsposoDe a rdf:Property .
+
+ex:perteneceAFamilia rdf:type rdf:Property .
+ex:miembro rdf:type rdf:Property .
+
+#Definición de conceptos
+ex:Juan_Garcia 	rdf:type ex:Persona ; 
+				ex:edad "45"^^xsd:integer;
+				ex:nombre "Juan";
+				ex:apellido "Garcia";
+				ex:sexo "Masculino".
+
+ex:Pedro_Garcia rdf:type ex:Persona;
+				ex:edad "18"^^xsd:integer;
+				ex:nombre "Pedro";
+				ex:apellido "Garcia";
+				ex:sexo "Masculino".
+
+ex:Maria_Perez 	rdf:type ex:Persona;
+				ex:edad"42"^^xsd:integer;
+				ex:nombre "Maria";
+				ex:apellido "Perez";
+				ex:sexo "Femenino".
+
+
+ex:Familia_Garcia_Perez rdf:type ex:Familia.
+
+ex:Pedro_Garcia ex:hijoDe ex:Juan_Garcia , ex:Maria_Perez ; 
+				ex:perteneceAFamilia ex:Familia_Garcia_Perez .
+
+ex:Maria_Perez	ex:esMadreDe ex:Pedro_Garcia;
+				ex:esEsposaDe ex:Juan_Garcia; 
+				ex:perteneceAFamilia ex:Familia_Garcia_Perez .
+
+ex:Juan_Garcia 	ex:esPadreDe ex:Pedro_Garcia;
+					ex:esEsposoDe ex:Maria_Perez; 
+					ex:perteneceAFamilia ex:Familia_Garcia_Perez .
+

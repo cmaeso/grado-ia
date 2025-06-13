@@ -1,0 +1,62 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ex: <http://ejemplo.com/vocab#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Persona rdf:type rdfs:Class.
+ex:Universidad rdf:type rdfs:Class.
+ex:Ciudad rdf:type rdfs:Class. 
+
+ex:tieneNombre rdf:type rdf:Property .
+ex:tieneEdad rdf:type rdf:Property .
+ex:viveEn rdf:type rdf:Property .
+ex:estudiaEn rdf:type rdf:Property .
+ex:ubicadaEn rdf:type rdf:Property .
+ex:tieneMail rdf:type rdf:Property .
+
+
+#Ciudades
+ex:adrid rdf:type 		ex:Ciudad;
+                      	ex:tieneNombre "Madrid".
+
+ex:barcelona rdf:type 	ex:Ciudad;
+						ex:tieneNombre "Barcelona". 
+
+ex:granada rdf:type 	ex:Ciudad;
+						ex:tieneNombre "Granada".
+
+#Personas
+ex:persona1 rdf:type 	ex:Persona; 
+						ex:tieneNombre "María";
+						ex:tieneEdad "24"^^xsd:integer;
+						ex:viveEn ex:madrid;
+						ex:tieneMail "hola@mail.com".
+
+ex:persona2 rdf:type 	ex:Persona; 
+                        ex:tieneNombre "Pepe";
+                        ex:tieneEdad "29"^^xsd:integer ;
+                        ex:viveEn ex:granada;
+                        ex:tieneMail "adios@mail.com".
+
+ex:persona3 rdf:type 	ex:Persona; 
+                        ex:tieneNombre "Lucía";
+                        ex:tieneEdad"35"^^xsd:integer ;
+                        ex:viveEn ex:barcelona;
+                        ex:tieneMail"quetal@mail.com".
+
+ex:uni1 rdf:type 	ex:Universidad;
+					ex:tieneNombre"URJC";
+					ex:ubicadaEn ex:madrid. 
+
+ex:uni2 rdf:type 	ex:Universidad;
+					ex:tieneNombre"UGR";
+					ex:ubicadaEn ex:granada. 
+
+ex:uni2 rdf:type 	ex:Universidad;
+					ex:tieneNombre"UB";
+					ex:ubicadaEn ex:barcelona. 
+
+ex:persona1 ex:estudiaEn ex:uni1.
+ex:persona2 ex:estudiaEn ex:uni2.
+ex:persona3 ex:estudiaEn ex:uni3 .
