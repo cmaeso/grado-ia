@@ -1,0 +1,37 @@
+@prefix ex:<http://www.example.org/libros#>.
+@prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc:<http://purl.org/dc/elements/1.1/>.
+@prefix xsd:<http://www.w3.org/2001/XMLSchema#>.
+
+ex:Autor rdf:type rdfs:Class .
+ex:Libro rdf:type rdfs:Class .
+
+ex:tieneNombre rdf:type rdf:Property .
+ex:escritoPor a rdf:Property .
+ex:publicadoEn a rdf:Property .
+ex:escribe a rdf:Property .
+
+
+
+ex:autor1 rdf:type 	ex:Autor;
+					ex:tieneNombre "Gabriel García Márquez".
+
+ex:autor2 rdf:type ex:Autor;
+					ex:tieneNombre "J.K.Rowling".
+
+ex:libro1 rdf:type  ex:Libro;
+					ex:tieneNombre "Cien Años de Soledad";
+					ex:escritoPor ex:autor1;
+					dc:date "1997-05-30"^^xsd:date .
+ex:libro2 rdf:type 	ex:Libro;
+					ex:tieneNombre: "Amor el tiempos de cólera";
+					ex:escritoPor ex:autor2;
+					dc:date "1967-05-30" . 
+
+ex:libro3 rdf:type 	ex:Libro;
+					ex:tieneNombre "Harry Potter y la Piedra Filosofal";
+					ex:escritoPor ex:autor2;
+					dc:date "1997-06-26"^^xsd:date .
+
+

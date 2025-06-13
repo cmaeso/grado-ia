@@ -1,0 +1,139 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ex: <http://ejemplo.com/vocab#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Usuario a rdfs:Class.
+ex:Publicacion a rdfs:Class.
+ex:Ciudad a rdf:Class.
+ex:amigoDe a rdf:Property.
+
+ex:tieneNombre a rdf:Property.
+ex:fechaNacimiento a rdf:Property.
+ex:publicadoPor a rdf:Property.
+ex:genero a rdf:Property.
+ex:ubicacion a rdf:Property.
+ex:tieneContenido a rdf:Property.
+ex:numeroLikes a rdf:Property.
+
+# Ciudades
+ex:madrid rdf:type ex:Ciudad;
+    ex:tieneNombre "Madrid" .
+
+ex:barcelona rdf:type ex:Ciudad ;
+    ex:tieneNombre "Barcelona" .
+
+ex:granada rdf:type ex:Ciudad ;
+    ex:tieneNombre "Granada" .
+
+ex:user1 rdf:type 	ex:Usuario;
+					ex:tieneNombre "westwet";
+					ex:fechaNacimiento "1998-05-13"^^xsd:date;
+					ex:genero"Femenino";
+					ex:ubicacion ex:madrid.
+
+ex:user2 rdf:type 	ex:Usuario;
+					ex:tieneNombre "northnot";
+					ex:fechaNacimiento "1999-08-31"^^xsd:date;
+					ex:genero"Masculino";
+					ex:ubicacion ex:madrid.
+
+ex:user3 rdf:type 	ex:Usuario;
+					ex:tieneNombre "miaucat";
+					ex:fechaNacimiento "2003-10-20"^^xsd:date;
+					ex:genero"Masculino";
+					ex:ubicacion ex:madrid.
+
+ex:user4 rdf:type 	ex:Usuario;
+					ex:tieneNombre "guaudog";
+					ex:fechaNacimiento "2004-01-31"^^xsd:date;
+					ex:genero"Masculino";
+					ex:ubicacion ex:madrid.
+
+ex:user5 rdf:type 	ex:Usuario;
+					ex:tieneNombre "guaudog";
+					ex:fechaNacimiento "2004-01-31"^^xsd:date;
+					ex:genero"Masculino";
+					ex:ubicacion ex:madrid.
+
+
+ex:user6 rdf:type 	ex:Usuario;
+					ex:tieneNombre "aaaaaart";
+					ex:fechaNacimiento "1998-05-13"^^xsd:date;
+					ex:genero"Femenino";
+					ex:ubicacion ex:granada.
+
+ex:user7 rdf:type 	ex:Usuario;
+					ex:tieneNombre "marioneta55";
+					ex:fechaNacimiento "1999-08-31"^^xsd:date;
+					ex:genero"Masculino";
+					ex:ubicacion ex:madrid.
+
+ex:user8 rdf:type 	ex:Usuario;
+					ex:tieneNombre "jake444";
+					ex:fechaNacimiento "2003-10-20"^^xsd:date;
+					ex:genero"Masculino";
+					ex:ubicacion ex:granada.
+
+ex:user9 rdf:type 	ex:Usuario;
+					ex:tieneNombre "lolipop2";
+					ex:fechaNacimiento "2004-01-31"^^xsd:date;
+					ex:genero"Femenino";
+					ex:ubicacion ex:madrid.
+
+ex:user10 rdf:type 	ex:Usuario;
+					ex:tieneNombre "pagafantas0";
+					ex:fechaNacimiento "2004-01-31"^^xsd:date;
+					ex:genero"Masculino";
+					ex:ubicacion ex:barcelona.
+
+
+ex:post1 rdf:type ex:Publicacion;
+				ex:publicadoPor ex:user10;
+                ex:tieneContenido "Hello world :)";
+                ex:numeroLikes "10"^^xsd:integer;
+                dc:date "2020-01-15"^^xsd:date.
+
+ex:post2 rdf:type ex:Publicacion;
+				ex:publicadoPor ex:user5;
+                ex:tieneContenido "¡Qué buen día hoy en Madrid!";
+                ex:numeroLikes "25"^^xsd:integer;
+                dc:date "2020-02-20"^^xsd:date.
+
+ex:post3 rdf:type ex:Publicacion;
+				ex:publicadoPor ex:user3;
+                ex:tieneContenido "Estoy aprendiendo RDF.";
+                ex:numeroLikes "15"^^xsd:integer;
+                dc:date "2020-03-10"^^xsd:date.
+
+ex:post4 rdf:type ex:Publicacion;
+				ex:publicadoPor ex:user1;
+                ex:tieneContenido "Lol* Lol*ta funada";
+                ex:numeroLikes "30"^^xsd:integer;
+                dc:date "2020-04-05"^^xsd:date.
+
+ex:post5 rdf:type ex:Publicacion;
+				ex:publicadoPor ex:user6;
+                ex:tieneContenido "Escalando";
+                ex:numeroLikes "50"^^xsd:integer;
+                dc:date "2020-05-25"^^xsd:date.
+
+
+ex:user1 ex:amigoDe ex:user2.
+ex:user1 ex:amigoDe ex:user5.
+ex:user3 ex:amigoDe ex:user2.
+ex:user10 ex:amigoDe ex:user2.
+ex:user4 ex:amigoDe ex:user3.
+ex:user10 ex:amigoDe ex:user8.
+ex:user1 ex:amigoDe ex:user9.
+ex:user3 ex:amigoDe ex:user9.
+ex:user10 ex:amigoDe ex:user9.
+ex:user10 ex:amigoDe ex:user3.
+ex:user9 ex:amigoDe ex:user3.
+ex:user8 ex:amigoDe ex:user9.
+ex:user6 ex:amigoDe ex:user9.
+ex:user7 ex:amigoDe ex:user3.
+ex:user5 ex:amigoDe ex:user3.
+
+
