@@ -1,0 +1,137 @@
+@prefix ex: <http://example.org/empresa#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+
+# Definir personas (empleados)
+ex:Pedro_Garcia a ex:Persona ;
+    ex:tieneNombre "Pedro" ;
+    ex:tieneApellido "García" ;
+    ex:tieneSexo "Masculino" ;
+    ex:tieneProfesion "Ingeniero de Software" ;
+    ex:tieneEdad 35 ;
+    ex:tieneResidencia "Madrid" ;
+    ex:tieneEmail "pedro.garcia@techSolutions.com" ;
+    ex:esEmpleadoDe ex:TechSolutions .
+
+ex:Ana_Perez a ex:Persona ;
+    ex:tieneNombre "Ana" ;
+    ex:tieneApellido "Pérez" ;
+    ex:tieneSexo "Femenino" ;
+    ex:tieneProfesion "Diseñadora Gráfica" ;
+    ex:tieneEdad 28 ;
+    ex:tieneResidencia "Barcelona" ;
+    ex:esEmpleadoDe ex:CreativeDesigns .
+
+ex:Roberto_Cuesta a ex:Persona ;
+    ex:tieneNombre "Roberto" ;
+    ex:tieneApellido "Cuesta" ;
+    ex:tieneSexo "Masculino" ;
+    ex:tieneProfesion "Conductor" ;
+    ex:tieneEdad 29 ;
+    ex:tieneResidencia "Barcelona" .
+
+
+
+ex:Juan_Lopez a ex:Persona ;
+    ex:tieneNombre "Juan" ;
+    ex:tieneApellido "López" ;
+    ex:tieneSexo "Masculino" ;
+    ex:tieneProfesion "Analista de Datos" ;
+    ex:tieneEdad 42 ;
+    ex:tieneResidencia "Sevilla" ;
+    ex:tieneTelefono "123-456-7890" ;
+    ex:tieneEmail "juan.lopez@dataAnalyticsCo.com" ;
+    ex:esEmpleadoDe ex:DataAnalyticsCo .
+
+ex:Maria_Sanchez a ex:Persona ;
+    ex:tieneNombre "María" ;
+    ex:tieneApellido "Sánchez" ;
+    ex:tieneSexo "Femenino" ;
+    ex:tieneProfesion "Marketing Manager" ;
+    ex:tieneEdad 33 ;
+    ex:tieneResidencia "Valencia" ;
+    ex:tieneTelefono "987-654-3210" ;
+    ex:esEmpleadoDe ex:GlobalMarketing .
+
+ex:Jose_Martinez a ex:Persona ;
+    ex:tieneNombre "José" ;
+    ex:tieneApellido "Martínez" ;
+    ex:tieneSexo "Masculino" ;
+    ex:tieneProfesion "Desarrollador Web" ;
+    ex:tieneEdad 27 ;
+    ex:tieneResidencia "Zaragoza" ;
+    ex:esEmpleadoDe ex:TechSolutions .
+
+ex:Clara_Diaz a ex:Persona ;
+    ex:tieneNombre "Clara" ;
+    ex:tieneApellido "Díaz" ;
+    ex:tieneSexo "Femenino" ;
+    ex:tieneProfesion "Consultora de Negocios" ;
+    ex:tieneEdad 30 ;
+    ex:tieneResidencia "Madrid" ;
+    ex:esEmpleadoDe ex:DataAnalyticsCo .
+
+ex:Lucas_Gomez a ex:Persona ;
+    ex:tieneNombre "Lucas" ;
+    ex:tieneApellido "Gómez" ;
+    ex:tieneSexo "Masculino" ;
+    ex:tieneProfesion "Especialista en Ciberseguridad" ;
+    ex:tieneEdad 29 ;
+    ex:tieneResidencia "Bilbao" ;
+    ex:esEmpleadoDe ex:CreativeDesigns .
+
+ex:Elena_Ruiz a ex:Persona ;
+    ex:tieneNombre "Elena" ;
+    ex:tieneApellido "Ruiz" ;
+    ex:tieneSexo "Femenino" ;
+    ex:tieneProfesion "Diseñadora UX" ;
+    ex:tieneEdad 25 ;
+    ex:tieneResidencia "Barcelona" ;
+    ex:esEmpleadoDe ex:CreativeDesigns .
+
+ex:Roberto_Fernandez a ex:Persona ;
+    ex:tieneNombre "Roberto" ;
+    ex:tieneApellido "Fernández" ;
+    ex:tieneSexo "Masculino" ;
+    ex:tieneProfesion "Especialista en Redes" ;
+    ex:tieneEdad 38 ;
+    ex:tieneResidencia "Valencia" ;
+    ex:esEmpleadoDe ex:GlobalMarketing .
+
+ex:Carla_Navarro a ex:Persona ;
+    ex:tieneNombre "Carla" ;
+    ex:tieneApellido "Navarro" ;
+    ex:tieneSexo "Femenino" ;
+    ex:tieneProfesion "Community Manager" ;
+    ex:tieneEdad 26 ;
+    ex:tieneResidencia "Madrid" ;
+    ex:esEmpleadoDe ex:GlobalMarketing .
+
+# Definir compañías
+ex:TechSolutions a ex:Compania ;
+    ex:tieneNombreCompania "Tech Solutions" ;
+    ex:tieneNumeroEmpleados 500 ;
+    ex:tieneCiudad "Madrid" ;
+    ex:tieneIndustria "Tecnología" .
+
+ex:CreativeDesigns a ex:Compania ;
+    ex:tieneNombreCompania "Creative Designs" ;
+    ex:tieneNumeroEmpleados 120 ;
+    ex:tieneCiudad "Barcelona" ;
+    ex:tieneIndustria "Diseño Gráfico" .
+
+ex:DataAnalyticsCo a ex:Compania ;
+    ex:tieneNombreCompania "Data Analytics Co." ;
+    ex:tieneNumeroEmpleados 200 ;
+    ex:tieneCiudad "Sevilla" ;
+    ex:tieneIndustria "Análisis de Datos" .
+
+ex:GlobalMarketing a ex:Compania ;
+    ex:tieneNombreCompania "Global Marketing" ;
+    ex:tieneNumeroEmpleados 300 ;
+    ex:tieneCiudad "Valencia" ;
+    ex:tieneIndustria "Marketing y Publicidad" .

@@ -1,0 +1,40 @@
+# Ejercicios property paths
+# 1. Buscar todos los descendientes de Roberto
+SELECT ?descendiente WHERE {
+ex:Roberto ex:parentOf+ ?descendiente .
+}
+
+# 2. Encontrar a todas las personas que están relacionadas con Miguel, directa o indirectamente,
+a través de la propiedad "knows"
+
+SELECT ?amigo WHERE {
+ ex:Miguel ex:knows* ?amigo .
+}
+
+# 3. Buscar a las personas que están relacionadas con Sergio a través de la relación "knows"
+
+SELECT ?persona WHERE {
+  ex:Sergio ex:knows+ ?persona .
+}
+
+#4. Encontrar los abuelos de Miguel usando una combinación de "parentOf"
+SELECT ?abuelo WHERE {
+?abuelo ex:parentOf/ex:parentOf+ ex:Miguel
+}
+
+SELECT ?abuelo WHERE {
+ ex:Miguel ^ex:parentOf/^ex:parentOf ?abuelo .
+}
+
+#5. Buscar todas las personas que están relacionadas con Omar a través de la propiedad "knows" o "parentOf"
+
+SELECT ?persona WHERE {
+ex:Omar (ex:knows| ex:parentOf) ?persona .
+}
+
+6.  Encontrar a todas las personas conectadas a Roberto a través de la propiedad "parentOf" o
+sus inversas
+SELECT ?persona WHERE {
+	ex:Roberto (ex:parentOf | ^ex:childOf)* ?persona .
+
+}

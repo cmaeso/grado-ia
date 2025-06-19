@@ -1,0 +1,15 @@
+#Obtener las publicaciones de un autor específico
+SELECT ?publicacion WHERE {
+	ex:autor1 ex:escribePublicacion ?publicacion .
+} 
+
+#Obtener los autores y las publicaciones que han escrito (sean libros o revistas)
+SELECT ?autor ?publicacion WHERE{
+	?autor ex:escribePublicacion ?publicacion .
+}
+
+#Obtener todas las publicaciones junto con sus fechas de publicación
+SELECT ?publicacion ?fecha WHERE {
+	?publicacion dc:date ?fecha .
+
+}

@@ -1,0 +1,161 @@
+# Ejercicio 1
+
+## Obtener todas las instancias de la ontologia
+
+SELECT * WHERE{
+	?instancia rdf:type ?tipo .
+
+}
+
+## Obtener todas las intancias de libros
+SELECT ?libro WHERE{
+	?libro rdf:type ex:Libro  .
+}	
+
+## Obtener el listado de los nombres de los libros
+SELECT ?nom WHERE{
+	?libro rdf:type ex:Libro;
+		ex:tieneNombre ?nom .
+		}
+		
+##Consulta SPARQL para obtener libros escritos por el autor1
+SELECT ?libro WHERE{
+	?libro rdf:type ex:Libro;
+	ex:escritoPor ex:autor1 .
+}
+
+## Consulta para obtener la lista de títulos junto al autor
+SELECT ?titulo ?autor WHERE{
+	?libro rdf:type ex:Libro;
+	ex:tieneNombre ?titulo;
+	ex:escritoPor ?a .
+	?a ex:tieneNombre ?autor .
+}
+
+# Ejercicio 2
+## Consulta para obtener los miembros de la familia García
+SELECT ?persona WHERE{
+	?persona ex:perteneceAFamilia ex:Familia_Garcia_Perez
+	
+}
+
+##Consulta para obtener la relación de hijos y padres (no madres)
+SELECT ?hijo ?padre WHERE{
+	?padre ex:esPadreDe ?hijo
+}
+
+## Consulta para obtener todas las personas y sus edades
+SELECT ?persona ?edad WHERE{
+	?persona rdf:type ex:Persona;
+	ex:edad ?edad .
+}
+
+##Consulta para obtener las personas de género masculino
+SELECT ?persona WHERE {
+	?persona rdf:type ex:Persona;
+	ex:sexo "Masculino" .
+}
+
+##Consulta para obtener los nombres y apellidos de las personas casadas
+SELECT ?nom ?ape WHERE{
+{
+	?persona rdf:type ex:Persona;
+	ex:esEsposoDe ?pareja;
+} UNION {
+	?persona rdf:type ex:Persona;
+	ex:esEsposaDe ?pareja;
+	}
+	?persona ex:nombre ?nom;
+	ex:apellido ?ape .
+}
+
+
+## Consulta para obtener el nombre de los padres de Pedro García
+SELECT ?nom WHERE{
+{
+	?persona rdf:type ex:Persona;
+	ex:esMadreDe ex:Pedro_Garcia;
+	ex:nombre ?nom .
+} UNION {
+	?persona rdf:type ex:Persona;
+	ex:esPadreDe ex:Pedro_Garcia;
+	ex:nombre ?nom .
+	}
+}
+
+#Consulta para obtener el nombre y apellido de las personas que tienen hijos
+SELECT ?nom ?ape WHERE {
+{
+	?persona rdf:type ex:Persona;
+	
+	ex:esMadreDe ?hijo .
+	} 	UNION {
+	?persona ex:esPadreDe ?hijo .
+} ?persona 	ex:nombre ?nom;
+			ex:apellido ?ape
+
+}
+
+# Ejercicio 3
+##Obtener los nombres de todas las personas
+SELECT ?nom WHERE{
+	?persona rdf:type ex:Persona;
+	ex:tieneNombre ?nom .
+}
+
+##Obtener los nombres y edades de todas las personas
+SELECT ?nom ?edad WHERE {
+	?persona rdf:type ex:Persona;
+	ex:tieneNombre ?nom;
+	ex:tieneEdad ?edad .
+}
+
+## Obtener las personas que viven en Madrid
+SELECT ?persona WHERE {
+	?persona rdf:type ex:Persona;
+	ex:viveEn ex:madrid .
+
+}
+
+##Obtener las personas y las universidades en las que estudian
+SELECT ?nomPersona ?nomUni WHERE{
+	?persona rdf:type ex:Persona;
+	ex:tieneNombre ?nomPersona;
+	ex:estudiaEn ?universidad .
+	?universidad ex:tieneNombre ?nomUni .
+} 
+
+##Obtener los correos electrónicos de todas las personas
+SELECT ?correo WHERE {
+	?persona rdf:type ex:Persona;
+	ex:tieneMail ?correo .
+}
+
+## Obtener el nombre de las ciudades en las que están ubicadas las universidades
+SELECT ?nombreCiu WHERE {
+	?uni rdf:type ex:Universidad;
+	ex:ubicada en ?ubi .
+	?ubi ex:tieneNombre ?nombreCiu .
+}
+
+##Obtener las personas que estudian en 'Universidad de Madrid'
+SELECT ?persona WHERE {
+	?persona rdf:type ex:Persona;
+	ex:estudiaEn: "Universidad de Madrid"
+}
+
+NOTA: A partir de aquí no se contemplan en el modelo, pero se suponen
+##Obtener las personas que hablan más de un idioma
+SELECT ?persona (COUNT(?idioma) as ?numIdiomas) WHERE {
+	?persona rdf:type ex:Persona;
+	ex:hablaIdioma ?idioma.
+	} 
+	GROUP BY ?persona
+	HAVING (COUNT(?idioma)>1)
+}
+
+##Obtener las personas cuyo hobby es 'Leer'
+SELECT ?persona WHERE {
+	?persona rdf:type ex:Persona;
+	ex:tieneHobby: "Leer"
+}

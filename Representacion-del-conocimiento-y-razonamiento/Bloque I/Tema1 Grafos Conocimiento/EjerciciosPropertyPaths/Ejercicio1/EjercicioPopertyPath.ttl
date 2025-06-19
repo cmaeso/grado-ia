@@ -1,0 +1,30 @@
+@prefix ex: <http://www.example.org/family#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Definición de las personas
+ex:Roberto a foaf:Person ;
+    foaf:name "Roberto" ;
+    ex:parentOf ex:Omar .
+
+
+ex:Omar a foaf:Person ;
+    foaf:name "Omar" ;
+    ex:childOf ex:Roberto ;
+    ex:parentOf ex:Fernando .
+
+ex:Fernando a foaf:Person ;
+   foaf:name "Fernando" ;
+   ex:childOf ex:Omar ;
+   ex:knows ex:Sergio ;
+   ex:parentOf ex:Miguel .
+
+ex:Miguel a foaf:Person ;
+   foaf:name "Miguel" ;
+   ex:childOf ex:Fernando .
+
+ex:Sergio a foaf:Person ;
+   foaf:name "Sergio" ;
+   ex:knows ex:Fernando .
+
+

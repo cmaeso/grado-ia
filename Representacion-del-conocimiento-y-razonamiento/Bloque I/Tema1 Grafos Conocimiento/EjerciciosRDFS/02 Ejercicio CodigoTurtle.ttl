@@ -1,0 +1,88 @@
+@prefix ex: <http://ejemplo.org/familia#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Clases
+ex:Persona rdf:type rdfs:Class .
+ex:Familia rdf:type rdfs:Class .
+
+# Propiedades datos
+ex:tieneNombre a rdf:Property ;
+				rdfs:domain ex:Persona;
+				rdfs:range xsd:string .
+
+ex:tieneApellido a rdf:Property ;
+				rdfs:domain ex:Persona;
+				rdfs:range xsd:string .
+
+ex:tieneEdad a rdf:Property ;
+				rdfs:domain ex:Persona;
+				rdfs:range xsd:integer .
+
+# Propiedades objeto
+ex:esFamilia 	a rdf:Property;
+				rdfs:domain ex:Persona;
+				rdfs:range ex:Persona .
+
+ex:esPadreDe a 	rdf:Property;
+				rdfs:subpropertyOf ex:esFamilia;
+				rdfs:domain ex:Persona;
+				rdfs:range ex:Persona .
+
+ex:esMadreDe a 	rdf:Property;
+				rdfs:subPropertyOf ex:esFamilia;
+				rdfs:domain ex:Persona;
+				rdfs:range ex:Persona .
+
+ex:hijoDe a 	rdf:Property;
+				rdfs:subPropertyOf ex:esFamilia;
+				rdfs:domain ex:Persona;
+				rdfs:range ex:Persona .
+
+ex:esEsposoDe a 	rdf:Property;
+				rdfs:subPropertyOf ex:esFamilia;
+				rdfs:domain ex:Persona;
+				rdfs:range ex:Persona .
+
+ex:esEsposaDe a 	rdf:Property;
+				rdfs:subPropertyOf ex:esFamilia;
+				rdfs:domain ex:Persona;
+				rdfs:range ex:Persona .
+
+ex:miembro a rdf:Property;
+			rdfs:domain ex:Familia;
+			rdfs:range ex:Persona .
+
+ex:Pedro_Garcia   rdf:type ex:Persona ;
+                  ex:tieneNombre   "Pedro" ;
+                  ex:tieneApellido "Garcia" ;
+                  ex:tieneEdad     40 ;
+                  ex:sexo          "Masculino" .
+
+ex:Laura_Mendez   rdf:type ex:Persona ;
+                  ex:tieneNombre   "Laura" ;
+                  ex:tieneApellido "Mendez" ;
+                  ex:tieneEdad     38 ;
+                  ex:sexo          "Femenino" .
+
+ex:Carlos_Garcia  rdf:type ex:Persona ;
+                  ex:tieneNombre   "Carlos" ;
+                  ex:tieneApellido "Garcia" ;
+                  ex:tieneEdad     10 ;
+                  ex:sexo          "Masculino" .
+
+## Relaciones familiares
+ex:Pedro_Garcia   ex:esEsposoDe    ex:Laura_Mendez ;
+                  ex:esPadreDe     ex:Carlos_Garcia .
+
+ex:Laura_Mendez   ex:esEsposaDe    ex:Pedro_Garcia ;
+                  ex:esMadreDe     ex:Carlos_Garcia .
+
+ex:Carlos_Garcia  ex:hijoDe        ex:Pedro_Garcia , ex:Laura_Mendez .
+
+## Familia
+ex:Familia_Garcia_Mendez  
+                  rdf:type ex:Familia ;
+                  ex:miembro ex:Pedro_Garcia , ex:Laura_Mendez , ex:Carlos_Garcia .

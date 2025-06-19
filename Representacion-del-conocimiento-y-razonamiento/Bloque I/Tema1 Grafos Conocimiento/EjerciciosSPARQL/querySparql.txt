@@ -1,0 +1,8 @@
+PREFIX ex: <http://example.org/empresa#>
+
+SELECT ?nombre ?apellido
+WHERE {
+  ?persona ex:tieneNombre ?nombre;
+           ex:tieneApellido ?apellido.
+} 
+LIMIT 5

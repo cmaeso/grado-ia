@@ -1,0 +1,101 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ex: <http://ejemplo.com/vocab#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Ejercicio 3 RDFS
+
+# Clases
+ex:Persona rdf:type rdfs:Class.
+ex:Institucion rdf:type rdfs:Class.
+ex:Universidad rdf:type rdfs:Class;
+				rdfs:subClassOf ex:Institucion.
+
+ex:EscuelaOficialIdioma rdf:type rdfs:Class;
+				rdfs:subClassOf ex:Institucion.
+
+ex:Ciudad rdf:type rdfs:Class. 
+
+#Propiedades de datos
+ex:tieneNombre 	rdf:type rdf:Property;
+				rdfs:range xsd:string.
+
+ex:tieneEdad 	rdf:type rdf:Property;
+				rdfs:domain ex:Persona;
+				rdfs:range xsd:integer .
+
+
+ex:correoElectronico 	rdf:type rdf:Property;
+						rdfs:domain ex:Persona;
+						rdfs:range xsd:string .
+
+ex:hablaIdioma 	rdf:type rdf:Property;
+				rdfs:domain ex:Persona;
+				rdfs:range xsd:string .
+
+ex:tieneHobby 	rdf:type rdf:Property;
+				rdfs:domain ex:Persona;
+				rdfs:range xsd:string .
+
+
+ex:viveEn 	rdf:type rdf:Property;
+				rdfs:domain ex:Persona;
+				rdfs:range ex:Ciudad .
+
+
+ex:estudiaEn 	rdf:type rdf:Property;
+				rdfs:domain ex:Persona;
+				rdfs:range ex:Institucion .
+
+ex:estudiaEnUniversidad 	rdf:type rdf:Property;
+						rdfs:subPropertyOf ex:estudiaEn;
+						rdfs:domain ex:Persona;
+                        rdfs:range ex:Universidad .
+
+
+#Instancias
+ex:Madrid rdf:type ex:Ciudad ;
+    ex:tieneNombre "Madrid" .
+
+ex:Barcelona rdf:type ex:Ciudad ;
+    ex:tieneNombre "Barcelona" .
+ex:UCM rdf:type ex:Universidad ;
+    ex:tieneNombre "Universidad Complutense de Madrid" ;
+    ex:ubicadaEn ex:Madrid .
+
+ex:UB rdf:type ex:Universidad ;
+    ex:tieneNombre "Universidad de Barcelona" ;
+    ex:ubicadaEn ex:Barcelona .
+
+ex:EOI_Madrid rdf:type ex:EscuelaOficialIdioma ;
+    ex:tieneNombre "Escuela Oficial de Idiomas de Madrid" ;
+    ex:ubicadaEn ex:Madrid .
+ex:persona1 rdf:type ex:Persona ;
+    ex:tieneNombre "Lucía Sánchez" ;
+    ex:tieneEdad 27 ;
+    ex:correoElectronico "lucia.sanchez@example.com" ;
+    ex:hablaIdioma "Inglés" , "Francés" ;
+    ex:tieneHobby "leer" ;
+    ex:viveEn ex:Madrid ;
+    ex:estudiaEn ex:EOI_Madrid ;
+    ex:estudiaEnUniversidad ex:UCM .
+
+ex:persona2 rdf:type ex:Persona ;
+    ex:tieneNombre "Carlos Romero" ;
+    ex:tieneEdad 30 ;
+    ex:correoElectronico "carlos.romero@example.com" ;
+    ex:hablaIdioma "Alemán" ;
+    ex:tieneHobby "tocar guitarra" ,"leer" ;
+    ex:viveEn ex:Barcelona ;
+    ex:estudiaEnUniversidad ex:UB .
+
+ex:persona3 rdf:type ex:Persona ;
+    ex:tieneNombre "Ana Torres" ;
+    ex:tieneEdad 22 ;
+    ex:correoElectronico "ana.torres@example.com" ;
+    ex:hablaIdioma "Inglés" ;
+    ex:tieneHobby "viajar" ;
+    ex:viveEn ex:Madrid ;
+    ex:estudiaEn ex:EOI_Madrid .
+

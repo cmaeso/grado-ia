@@ -1,0 +1,57 @@
+# Ejercicio 2 Consultas SPARQL con PropertyPaths
+
+#1. Obtener todas las personas que trabajan para la directora Susana.
+SELECT ?persona WHERE {
+	ex:susana ex:trabajaPara+ ?persona .
+}
+
+#2. Obtener todas las personas que están por debajo del supervisor Pedro.
+SELECT ?persona WHERE {
+	ex:pedro ex:esJefe+ ?persona .
+}
+
+#3. Obtener el jefe inmediato de el empleado junior Juan.
+SELECT ?jefe WHERE {
+	ex:juan ^ex:esJefeDe? ?jefe .
+}
+
+#4. Obtener todos los empleados que trabajan para María.
+SELECT ?persona WHERE {
+	ex:maria ^ex:trabajaPara+ ?persona .
+}
+
+#5. Obtener la jerarquía completa desde el empleado Juan hasta el cargo más alto de la
+empresa.
+SELECT ?nombre ?puesto WHERE {
+	ex:juan ex:trabajaPara+ ?jefe .
+	?jefe ex:tieneNombre ?nombre;
+		ex:tienePuesto ?puesto.
+
+}
+
+#6. Obtener el listado de puestos
+SELECT ?empleado ?puestoLabel WHERE {
+	?empleado ex:tienePuesto ?puesto.
+}
+
+#7. Obtener el nombre del empleado que tiene el puesto de Subgerente
+SELECT ?nombre WHERE{
+	?empleado ex:tienePuesto "Subgerente";
+	ex:tieneNombre ?nombre.
+}
+
+
+#8. Obtener el nombre de los empleados que están dos niveles por debajo del Subgerente
+SELECT ?nombre WHERE {
+	?subgerente ex:tienePuesto "Subgerente".
+	?empleado (ex:trabajaPara/ex:trabajaPara) ?subgerente;
+	tieneNombre ?nombre .
+}
+
+#9. Obtener la lista de personas y cargos que están por debajo del puesto de “Gerente”
+SELECT ?nombre ?cargo WHERE {
+	?gerente ex:tienePuesto "Gerente de Departamento";
+	ex:esJefe+ ?empleado.
+	?empleado ex:tieneNombre ?nombre.
+
+}

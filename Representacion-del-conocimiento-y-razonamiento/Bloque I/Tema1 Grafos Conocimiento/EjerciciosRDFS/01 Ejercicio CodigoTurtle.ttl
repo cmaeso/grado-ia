@@ -1,0 +1,86 @@
+@prefix ex: <http://www.example.org/publicaciones#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Definición de clases
+ex:Publicacion a rdfs:Class ;
+    rdfs:label "Publicación" ;
+    rdfs:comment "Clase que representa cualquier tipo de publicación." .
+
+ex:Libro a rdfs:Class ;
+    rdfs:label "Libro" ;
+    rdfs:comment "Clase que representa los libros." ;
+    rdfs:subClassOf ex:Publicacion .
+
+ex:Revista a rdfs:Class ;
+    rdfs:label "Revista" ;
+    rdfs:comment "Clase que representa las revistas." ;
+    rdfs:subClassOf ex:Publicacion .
+
+ex:Autor a rdfs:Class ;
+    rdfs:label "Autor" ;
+    rdfs:comment "Clase que representa a los autores de publicaciones." .
+
+# Propiedades de datos (dataproperties)
+ex:tieneNombre a rdf:Property ;
+    rdfs:label "tiene nombre" ;
+    rdfs:comment "Propiedad que representa el nombre de un recurso." ;
+    rdfs:range xsd:string .
+
+dc:date a rdf:Property ;
+    rdfs:label "Fecha de publicación" ;
+    rdfs:comment "Fecha en la que una publicación fue lanzada." ;
+    rdfs:domain ex:Publicacion ;
+    rdfs:range xsd:date .
+
+# Propiedades que conectan autores y publicaciones
+ex:escribePublicacion a rdf:Property ;
+    rdfs:label "escribe publicación" ;
+    rdfs:comment "Indica que un autor escribe una publicación." ;
+    rdfs:domain ex:Autor ;
+    rdfs:range ex:Publicacion .
+
+ex:escribeLibro a rdf:Property ;
+    rdfs:label "escribe libro" ;
+    rdfs:comment "Indica que un autor escribe una publicación." ;
+    rdfs:domain ex:Autor ;
+    rdfs:subPropertyOf ex:escribePublicacion ;
+    rdfs:range ex:Libro .
+
+ex:escribeRevista a rdf:Property ;
+    rdfs:label "escribe revista" ;
+    rdfs:comment "Indica que un autor escribe una publicación." ;
+    rdfs:domain ex:Autor ;
+    rdfs:subPropertyOf ex:escribePublicacion ;
+    rdfs:range ex:Revista .
+
+
+# Instancias de autores
+ex:autor1 a ex:Autor ;
+    ex:tieneNombre "Gabriel García Márquez" .
+
+ex:autor2 a ex:Autor ;
+    ex:tieneNombre "Isabel Allende" .
+
+# Instancias de publicaciones
+ex:libro1 a ex:Libro ;
+    ex:tieneNombre "Cien Años de Soledad" ;
+    dc:date "1967-05-30"^^xsd:date .
+
+ex:libro2 a ex:Libro ;
+    ex:tieneNombre "La Casa de los Espíritus" ;
+    dc:date "1982-04-01"^^xsd:date .
+
+ex:revista1 a ex:Revista ;
+    ex:tieneNombre "Revista de Literatura Hispanoamericana" ;
+    dc:date "2020-10-15"^^xsd:date .
+
+
+ex:autor1 ex:escribeLibro ex:libro1 .
+ex:autor1 ex:escribeLibro ex:libro2 .
+
+ex:autor2 ex:escribeRevista ex:revista1 .
+
+
