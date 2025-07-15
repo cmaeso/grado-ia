@@ -1,0 +1,23 @@
+{
+    "SIFT": {
+        "indexParams": {
+            "algorithm": 1,
+            "trees": 5
+        },
+        "searchParams": {
+            "checks": 50
+        }
+    },
+
+    "ORB": {
+        "indexParams": {
+            "algorithm": 6,
+            "table_number": 6,
+            "key_size": 12,
+            "multi_probe_level": 1
+        },
+        "searchParams": {
+            "checks": 50
+        }
+    }
+}
